@@ -38,26 +38,6 @@ There are several ways to install the app locally if you want to test it.
 The endpoint will be available at http://127.0.0.1:5000/alphabet?string=<string>
 The API docs can be viewed at http://127.0.0.1:5000/apidocs
 
-### Docker
-
-You can also run inside a docker container.
-
-1. Build the container
-    ```bash
-   docker build -t jason-flask-app .
-   ```
-1. Run the container
-   ```bash
-   docker run -p 5000:5000 jason-flask-app
-   ```
-
-The container can then be reached via (your docker host IP):5000. 
-
-Note: If using this method to run, remember to change the urls in the rest of this document to be that ip 
-instead of 127.0.0.1. 
-
-The endpoint will be available at http://(docker host ip):5000/alphabet?string=<string>  
-The API docs can be viewed at http://(docker host ip):5000/apidocs
 
 # Usage
 
@@ -77,7 +57,25 @@ This project has swagger API documentation setup. To access it, visit the `/apid
 
 If running locally this would be http://127.0.0.1:5000/apidocs.
 
-Alternatively, offline documentation for the endpoint can be found [here](api/docs/alphabet.md)
+Alternatively, offline documentation for the endpoint can be found [here](chalicelib/api/docs/alphabet.md)
+
+# Deployment
+
+
+---------------
+
+
+Running EC2 instance
+Elastic Container Service
+Elastic Beanstalk
+Flask Lambda using Zappa
+Flask with Lambda using serverless
+
+However I'm going to use AWS Chalice, as it is what was used at my last job so it's the most fresh in my mind.
+
+Note: need to find a way to update the swagger part to work with chalice 
+
+-----
 
 # Discussion
 

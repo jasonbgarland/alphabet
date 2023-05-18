@@ -1,15 +1,6 @@
-from flask import Flask
-from flasgger import Swagger
+from chalice import Chalice
 
-from api.route.alphabet import alphabet_blueprint
+from chalicelib.api.route.alphabet_api import alphabet_blueprint
 
-app = Flask(__name__)
+app = Chalice(app_name="alphabet")
 app.register_blueprint(alphabet_blueprint)
-app.config['SWAGGER'] = {
-    "title": "Alphabet"
-}
-
-swagger = Swagger(app)
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0")

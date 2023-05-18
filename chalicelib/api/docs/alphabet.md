@@ -52,7 +52,7 @@ This response will be a JSON object with keys for `message` and `error` as follo
 
 ```json
 {
-  'message': 'Invalid request'
-  'error': 'Must include string parameter with string to verify',
+    "Code": "BadRequestError",
+    "Message": "Must include string parameter with string to verify",
 }
 ```

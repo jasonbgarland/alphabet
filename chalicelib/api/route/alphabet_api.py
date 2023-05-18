@@ -1,11 +1,10 @@
 import json
 
-from flask import Blueprint, request, make_response
-from werkzeug.exceptions import BadRequest
+from chalice import BadRequestError, Blueprint
 
 from ..service.alphabet import string_contains_alphabet
 
-alphabet_blueprint = Blueprint("alphabet", __name__)
+alphabet_blueprint = Blueprint(__name__)
 
 
 @alphabet_blueprint.route("/alphabet", methods=["GET"])
@@ -32,16 +31,14 @@ def alphabet():
             schema:
               type: string
     """
-    string_to_evaluate = request.args.get("string")
+    if alphabet_blueprint.current_request.query_params is None:
+        raise BadRequestError("Must include string parameter with string to verify")
+
+    string_to_evaluate = alphabet_blueprint.current_request.query_params.get("string")
     if string_to_evaluate is None:
-        response_dict = {
-            "message": "Invalid request",
-            "error": "Must include string parameter with string to verify",
-        }
-        response = make_response(response_dict, 400)
-        raise BadRequest("description", response)
+        raise BadRequestError("Must include string parameter with string to verify")
 
     contains_alphabet = string_contains_alphabet(string_to_evaluate)
     result = json.dumps(contains_alphabet)
 
-    return result, 200
+    return result

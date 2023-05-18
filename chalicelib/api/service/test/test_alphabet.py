@@ -1,9 +1,11 @@
 import random
 import string
 
-from api.service.alphabet import string_contains_alphabet
+from chalicelib.api.service.alphabet import string_contains_alphabet
 
 ALPHABET_STRING = "abcdefghijklmnopqrstuvwxyz"
+
+
 def generate_random_str(
     length: int,
     uppercase=True,
@@ -77,4 +79,3 @@ class TestStringContainsAlphabet:
         # not very probable, but make sure to include all the letters at the end so we have a consistent test result
         test_string = generate_random_str(100000) + ALPHABET_STRING
         assert string_contains_alphabet(test_string) is True
-
