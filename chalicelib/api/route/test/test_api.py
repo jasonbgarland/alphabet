@@ -1,9 +1,12 @@
 """
-And to end / API tests for the alphabet API
+End to end / API tests for the alphabet API
 """
 import urllib
 
-from chalicelib.api.service.test.test_alphabet import generate_random_str, ALPHABET_STRING
+from chalicelib.api.service.test.test_alphabet import (
+    generate_random_str,
+    ALPHABET_STRING,
+)
 
 
 class TestAlphabet:

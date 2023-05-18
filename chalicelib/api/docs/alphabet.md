@@ -2,9 +2,7 @@
 
 Route that can be used to verify if every letter of the alphabet is included in the provided string.
 
-Notes:
-
-The check is case-insensitive. Numbers, special characters, and whitespace are ignored.
+Note: The check is case-insensitive. Numbers, special characters, and whitespace are ignored.
 
 ## URL
 
@@ -48,7 +46,7 @@ false
 ### 400
 
 The endpoint will return a 400 response if the `string` parameter is omitted.
-This response will be a JSON object with keys for `message` and `error` as follows:
+This response will be a JSON object as follows:
 
 ```json
 {
